@@ -47,6 +47,13 @@ class AttributeShardsConfig {
     @ConfigEditorDropdown
     var overlayPriceSource: AttributeShardOverlay.AttributeShardPriceSource = AttributeShardOverlay.AttributeShardPriceSource.INSTANT_BUY
 
+    // NEW: Allows selecting the new lowest-price-first sorting mode
+    @Expose
+    @ConfigOption(name = "Sort by Lowest Price", desc = "Sort shards by the lowest price available.")
+    @ConfigEditorDropdown
+    var lowestPriceSort: AttributeShardOverlay.AttributeShardSorting =
+        AttributeShardOverlay.AttributeShardSorting.PRICE_TO_NEXT_TIER
+
     @Expose
     @ConfigOption(name = "Tier As Stack Size", desc = "Display the tier of the shard as stack size in the attribute menu.")
     @ConfigEditorBoolean
@@ -72,5 +79,4 @@ class AttributeShardsConfig {
     @Expose
     @ConfigLink(owner = AttributeShardsConfig::class, field = "huntingBoxValue")
     val huntingBoxValuePosition = Position(174, 139)
-
 }
